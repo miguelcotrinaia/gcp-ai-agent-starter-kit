@@ -32,8 +32,8 @@
 
 Plantillas FrontEnd (repos externos):
 
-- Login con Google → <https://github.com/macespinoza/agentui-withlogin>  
-- Sin login → <https://github.com/macespinoza/agentui-withoutlogin>
+- Login con Google → <https://github.com/miguelcotrinaia/agentui-withlogin>  
+- Sin login → <https://github.com/miguelcotrinaia/agentui-withoutlogin>
 
 ---
 
@@ -54,8 +54,8 @@ Plantillas FrontEnd (repos externos):
 Este proyecto es de **código abierto** y nació con el propósito de compartir, aprender y construir en comunidad.  
 Si tienes ideas, mejoras o simplemente quieres sumarte, ¡las contribuciones están más que bienvenidas! 🙌
 
-[![Star](https://img.shields.io/github/stars/macespinoza/gcp-ai-agent-starter-kit?style=social)](https://github.com/macespinoza/gcp-ai-agent-starter-kit/stargazers)
-[![Fork](https://img.shields.io/github/forks/macespinoza/gcp-ai-agent-starter-kit?style=social)](https://github.com/macespinoza/gcp-ai-agent-starter-kit/fork)
+[![Star](https://img.shields.io/github/stars/miguelcotrinaia/gcp-ai-agent-starter-kit?style=social)](https://github.com/miguelcotrinaia/gcp-ai-agent-starter-kit/stargazers)
+[![Fork](https://img.shields.io/github/forks/macespinoza/gcp-ai-agent-starter-kit?style=social)](https://github.com/miguelcotrinaia/gcp-ai-agent-starter-kit/fork)
 
 > Puedes abrir un Pull Request o crear un Issue si quieres proponer mejoras o reportar errores.  
 
@@ -66,6 +66,6 @@ Si tienes ideas, mejoras o simplemente quieres sumarte, ¡las contribuciones est
 Gracias por revisar este repositorio.  
 Si te interesa colaborar, aprender más o invitarme a dar una charla, puedes escribirme o seguirme en LinkedIn:
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Miguel%20Cotrina-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/mcotrina/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Miguel%20Cotrina-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/miguelcotrinaia/)
 
 > IA & Data con propósito
