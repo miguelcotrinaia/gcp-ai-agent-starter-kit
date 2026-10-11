@@ -1,71 +1,66 @@
-# Taller URP – Aplicación GenAI *end‑to‑end*
+# Agentes de IA con LangChain, LangGraph y Google Cloud
 
-**Construye un asistente conversacional** que combina:
+Repositorio principal de la serie educativa para construir y desplegar una aplicación conversacional de IA con **RAG**, **memoria de conversaciones**, **trazabilidad** y una interfaz web. Es una evolución del taller anterior, no un curso de programación desde cero.
 
-- **LangChain** para orquestar la lógica de IA  
-- **RAG** (Retrieve‑Augment‑Generate) sobre **Elasticsearch 8.x**  
-- **Memoria de corto plazo** con **Cloud SQL (PostgreSQL)** y checkpoints  
-- **Trazabilidad** completa vía **LangSmith**  
-- Despliegue **Docker → Cloud Run (GCP)** y **UI React / Next.js en Vercel**
+## Arquitectura objetivo
 
-> Este repositorio acompaña el taller dictado en la Universidad Ricardo Palma.  
-> El flujo completo explicado en almenos 2 horas, desde el notebook hasta producción.
+- **Backend del agente:** Flask, LangChain y LangGraph en **Cloud Run**.
+- **Conocimiento RAG:** Elasticsearch en **Compute Engine**.
+- **Checkpoints de memoria:** PostgreSQL en **Cloud SQL**.
+- **Secretos:** Google Secret Manager; accesos mediante IAM.
+- **Observabilidad:** LangSmith.
+- **Frontend:** Next.js en **Cloud Run** en dos variantes independientes, una sin login y otra con Google Login.
 
-> Taller completo: https://youtu.be/n1KShZnmcXM
+La solución puede utilizar **uno u otro frontend**: no es obligatorio desplegar los dos a la vez.
 
----
+## Repositorios de esta solución
 
-## ⬇️ Contenido del repositorio
+| Componente | Repositorio | Episodio |
+|---|---|---|
+| Backend, notebooks, infraestructura y documentación central | [gcp-ai-agent-starter-kit](https://github.com/miguelcotrinaia/gcp-ai-agent-starter-kit) | 00–09 y 12 |
+| Next.js sin login | [agentui-withoutlogin](https://github.com/miguelcotrinaia/agentui-withoutlogin) | 10 |
+| Next.js con Google Login | [agentui-withlogin](https://github.com/miguelcotrinaia/agentui-withlogin) | 11 |
 
-| Ruta | Descripción |
-|------|-------------|
-| `Taller_URP_APP_DATA.ipynb` | Notebook Colab con todo el paso a paso para construir el agente. |
-| `Taller_URP_APP_DATA_CARGA.ipynb` | Notebook Colab opcional: Carga datos de prueba en base de datos vectorial Elasticsearch. |
-| `data.csv` | Notebook Colab opcional: Datos de prueba para la base de datos vectorial. |
-| `Taller GenAI Crea tu primera aplicación.pdf` | Presentación del taller (16 slides). |
-| `docs/` | Carpeta de arquitectura  |
-| &nbsp;&nbsp;└ `arquitectura_overview.jpg` | Arquitectura de la solucion. |
-| `CloudRun/` | Carpeta con el microservicio listo para Docker ➜ Cloud Run |
-| &nbsp;&nbsp;└ `app.py` | Código Python del agente (API `/agent`). |
-| &nbsp;&nbsp;└ `Dockerfile` | Imagen multistage ligera. |
-| &nbsp;&nbsp;└ `requirements.txt` | Dependencias congeladas. |
+## Playlist y ruta de aprendizaje
 
-Plantillas FrontEnd (repos externos):
+**Bienvenida:** video de presentación de la playlist, sin número de episodio. La serie se irá publicando progresivamente; la numeración indica el orden recomendado para aprender, no el orden en que se grabarán o publicarán los videos.
 
-- Login con Google → <https://github.com/miguelcotrinaia/agentui-withlogin>  
-- Sin login → <https://github.com/miguelcotrinaia/agentui-withoutlogin>
+| Episodio | Tema | Material | Estado |
+|---|---|---|---|
+| [00](./00-arquitectura-agente-ia-gcp/README.md) | Arquitectura del agente de IA en Google Cloud | Repositorio principal | En preparación |
+| [01](./01-preparar-google-cloud/README.md) | Preparar Google Cloud para el proyecto | Repositorio principal | En preparación |
+| [02](./02-elasticsearch-compute-engine/README.md) | Elasticsearch en Compute Engine | Repositorio principal | En preparación |
+| [03](./03-rag-langchain-elasticsearch/README.md) | RAG con LangChain y Elasticsearch | Repositorio principal | En preparación |
+| [04](./04-cloud-sql-postgresql/README.md) | PostgreSQL en Cloud SQL | Repositorio principal | En preparación |
+| [05](./05-secret-manager/README.md) | Secret Manager para el agente de IA | Repositorio principal | En preparación |
+| [06](./06-agente-langgraph-rag/README.md) | Agente con LangGraph y RAG | Repositorio principal | En preparación |
+| [07](./07-memoria-langgraph-postgresql/README.md) | Memoria de LangGraph con PostgreSQL | Repositorio principal | En preparación |
+| [08](./08-trazabilidad-langsmith/README.md) | Trazabilidad con LangSmith | Repositorio principal | En preparación |
+| [09](./09-despliegue-docker-cloud-run/README.md) | API Flask, Docker y Cloud Run | Repositorio principal | En preparación |
+| [10](./10-frontend-sin-login/README.md) | Frontend Next.js sin login | Frontend externo | En preparación |
+| [11](./11-frontend-con-login/README.md) | Frontend Next.js con Google Login | Frontend externo | En preparación |
+| [12](./12-pruebas-seguridad-costos/README.md) | Pruebas, seguridad y costos | Repositorio principal | En preparación |
 
----
+El **episodio 09** incluye la adaptación de la lógica del agente a una **API Flask** y su despliegue mediante **Docker en Cloud Run**; no hay un tutorial independiente de Flask desde cero.
 
-## 🗺️ Arquitectura
+## ¿Dónde está el código desplegable?
 
-![Arquitectura](docs/arquitectura_overview.jpg)
+- [`cloud-run-service/`](./cloud-run-service/) — código final del backend cuando se complete y valide con los archivos de despliegue del autor.
+- [`09-despliegue-docker-cloud-run/`](./09-despliegue-docker-cloud-run/) — guía educativa del episodio y comprobaciones.
+- [`10-frontend-sin-login/`](./10-frontend-sin-login/) y [`11-frontend-con-login/`](./11-frontend-con-login/) — guías y enlaces a los repositorios del frontend, sin duplicar su código.
 
-1. **Usuario** interactúa desde el navegador (Vercel).  
-2. **Cloud Run** recibe `/agent?msg=...&idagente=...` y activa LangChain.  
-3. El **agente** consulta → Elasticsearch (conocimiento) + PostgreSQL (memoria).  
-4. GPT‑4.1 genera la respuesta; LangSmith traza cada paso.  
-5. La respuesta JSON vuelve a la UI en tiempo real.
+## Conocimientos recomendados
 
-## 🌍 Comunidad y Contribuciones
+Se asumen bases de Python, HTTP/REST, Git, Docker y uso básico de Google Cloud. Cada episodio indica lo mínimo que necesita; no repetiremos un curso introductorio de estas tecnologías.
 
-![GitHub repo views](https://komarev.com/ghpvc/?username=macespinoza&repo=gcp-ai-agent-starter-kit&color=blue&style=flat)
+## Seguridad y costos
 
-Este proyecto es de **código abierto** y nació con el propósito de compartir, aprender y construir en comunidad.  
-Si tienes ideas, mejoras o simplemente quieres sumarte, ¡las contribuciones están más que bienvenidas! 🙌
+No se publicarán claves o contraseñas, ni código que dependa de valores de ejemplo embebidos. Se utilizarán mecanismos de secretos apropiados para Colab, entornos locales y Google Cloud, junto con validación de identidad y aislamiento de conversaciones. Las máquinas virtuales, bases de datos, Cloud Run y las llamadas a modelos pueden generar costos; revisa presupuestos y apaga los recursos de prueba que no uses.
 
-[![Star](https://img.shields.io/github/stars/miguelcotrinaia/gcp-ai-agent-starter-kit?style=social)](https://github.com/miguelcotrinaia/gcp-ai-agent-starter-kit/stargazers)
-[![Fork](https://img.shields.io/github/forks/macespinoza/gcp-ai-agent-starter-kit?style=social)](https://github.com/miguelcotrinaia/gcp-ai-agent-starter-kit/fork)
+## Taller anterior (versión 1.0)
 
-> Puedes abrir un Pull Request o crear un Issue si quieres proponer mejoras o reportar errores.  
+La carpeta [`version-anterior-1.0/`](./version-anterior-1.0/) conservará el material histórico una vez saneadas posibles credenciales y salidas de notebooks. La arquitectura del taller anterior usaba Vercel para el frontend. [Video original del taller](https://youtu.be/n1KShZnmcXM).
 
----
+## Comunidad
 
-## 🤝 Conecta conmigo
-
-Gracias por revisar este repositorio.  
-Si te interesa colaborar, aprender más o invitarme a dar una charla, puedes escribirme o seguirme en LinkedIn:
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Miguel%20Cotrina-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/miguelcotrinaia/)
-
-> IA & Data con propósito
+Se agradecen reportes de problemas y contribuciones mediante issues y pull requests a cada repositorio, indicando el episodio afectado.

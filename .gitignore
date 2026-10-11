@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+node_modules/
+.next/
+*.pem
+*.key
+.DS_Store
