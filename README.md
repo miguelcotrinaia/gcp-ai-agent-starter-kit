@@ -89,7 +89,7 @@ El taller inicial utilizaba una arquitectura con **backend en Cloud Run** y **fr
 
 La idea es aprender, compartir experiencias y construir agentes de IA en comunidad.
 
-- **[Unirme al grupo de WhatsApp](https://chat.whatsapp.com/REEMPLAZAR_CON_ENLACE_DEL_GRUPO)** — *enlace referencial; se actualizará con la invitación oficial*.
+- **[Unirme al grupo de WhatsApp](https://chat.whatsapp.com/IuQp9F3ZZNC0qbcYcITiNp)**
 - **[Reportar problemas o sugerir mejoras](https://github.com/miguelcotrinaia/gcp-ai-agent-starter-kit/issues)** mediante GitHub Issues.
 - **Contribuir:** abre un Pull Request en el repositorio correspondiente e indica el episodio o componente al que se refiere el cambio.
 
@@ -100,7 +100,7 @@ Si el contenido te resulta útil, puedes apoyar el proyecto dejando una ⭐ en l
 Soy **Miguel Ángel Cotrina Espinoza**. Comparto recursos y proyectos de inteligencia artificial, agentes y datos.
 
 - **LinkedIn:** [Miguel Cotrina](https://www.linkedin.com/in/miguelcotrinaia/)
-- **YouTube:** [Taller GenAI: crea tu primera aplicación](https://youtu.be/n1KShZnmcXM)
+- **YouTube:** [Taller GenAI: crea tu primera aplicación](https://www.youtube.com/@miguelcotrinaia)
 - **GitHub:** [miguelcotrinaia](https://github.com/miguelcotrinaia)
 
 **IA & Data con propósito.**
