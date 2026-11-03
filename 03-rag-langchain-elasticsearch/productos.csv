@@ -1,0 +1,11 @@
+id,nombre,categoria,marca,precio,descripcion
+P001,Laptop Ultra 14,Laptops,NovaTech,3499,"Laptop ligera de 14 pulgadas con 16 GB RAM y SSD de 512 GB, ideal para oficina y estudio."
+P002,Laptop Pro 16,Laptops,NovaTech,5799,Laptop de alto rendimiento con 32 GB RAM y tarjeta grafica dedicada para edicion y desarrollo.
+P003,Mouse ergonomico,Accesorios,Orion,89,Mouse inalambrico ergonomico con conexion Bluetooth y bateria recargable.
+P004,Teclado mecanico,Accesorios,Orion,229,Teclado mecanico compacto con iluminacion y switches silenciosos para programacion.
+P005,Monitor 27 pulgadas,Monitores,Vista,899,"Monitor IPS de 27 pulgadas con resolucion QHD, adecuado para productividad."
+P006,Audifonos Bluetooth,Audio,Sonic,199,Audifonos inalambricos con cancelacion de ruido y microfono integrado.
+P007,Camara web Full HD,Video,Vista,179,Camara web 1080p con enfoque automatico para reuniones y clases online.
+P008,Microfono USB,Audio,Sonic,329,"Microfono USB para grabacion de voz, podcast y transmisiones en vivo."
+P009,Disco SSD externo 1 TB,Almacenamiento,DataBox,399,Unidad SSD portatil de un terabyte con conexion USB-C para respaldos rapidos.
+P010,Hub USB-C,Accesorios,DataBox,129,"Adaptador USB-C con puertos HDMI, USB-A y lector de tarjetas para laptops."
